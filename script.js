@@ -41,7 +41,7 @@ let playRound = function(playerSelection, computerSelection) {
 
 let game = function() {
     for (let i = 0; i < 5; i++) {
-        console.log(playRound());
+        console.log(playRound(getComputerChoice(), getComputerChoice()));
     }
 }
-console.log(playRound('scissors', getComputerChoice()))
+game()
