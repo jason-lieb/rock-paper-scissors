@@ -16,22 +16,28 @@ let playRound = function(playerSelection, computerSelection) {
             output = 'You tied!';
         } else if (computerSelection.toLowerCase() === 'paper') {
             output = 'You lose! Paper beats Rock';
+            winCount -= 1;
         } else {
             output = 'You win! Rock beats Scissors';
+            winCount += 1;
         }
     }   else if (playerSelection.toLowerCase() === 'paper') {
         if (computerSelection.toLowerCase() === 'rock') {
             output = 'You win! Paper beats Rock';
+            winCount += 1;
         } else if (computerSelection.toLowerCase() === 'paper') {
             output = 'You tied!';
         } else {
             output = 'You lose! Scissors beats Paper'
+            winCount -= 1;
         }
     }   else {
         if (computerSelection.toLowerCase() === 'rock') {
             output = 'You lose! Rock beats Scissors'
+            winCount -= 1;
         } else if (computerSelection.toLowerCase() === 'paper') {
             output = 'You win! Scissors beats paper'
+            winCount += 1;
         } else {
             output = 'You tied!';
         }
@@ -40,8 +46,16 @@ let playRound = function(playerSelection, computerSelection) {
 }
 
 let game = function() {
+    winCount = 0;
     for (let i = 0; i < 5; i++) {
         console.log(playRound(getComputerChoice(), getComputerChoice()));
     }
+    if (winCount > 0) {
+        return 'You win!'
+    } else if (winCount < 0) {
+        return 'You lose!'
+    } else {
+        return 'You tied!'
+    }
 }
-game()
+console.log(game());
