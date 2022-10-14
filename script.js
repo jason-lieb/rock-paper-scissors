@@ -45,6 +45,8 @@ let playRound = function(playerSelection, computerSelection) {
     console.log(output);
     console.log(winCount);
     gameCount += 1;
+    display.textContent = output;
+    score.textContent = winCount;
     return output;
 }
 let winCount = 0;
@@ -52,9 +54,14 @@ let gameCount = 0;
 const rButton = document.querySelector('.r');
 const pButton = document.querySelector('.p');
 const sButton = document.querySelector('.s');
+const display = document.querySelector('.display');
+display.setAttribute('style', 'border: solid 3px black; height: 100px;');
+const score = document.querySelector('.score');
+score.setAttribute('style', 'border: solid 3px black; height: 100px;');
 rButton.addEventListener('click', () => playRound('rock', getComputerChoice()));
 pButton.addEventListener('click', () => playRound('paper', getComputerChoice()));
 sButton.addEventListener('click', () => playRound('scissors', getComputerChoice()));
+
 
 /*
 let game = function() {
