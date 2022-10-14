@@ -42,9 +42,21 @@ let playRound = function(playerSelection, computerSelection) {
             output = 'You tied!';
         }
     }
+    console.log(output);
+    console.log(winCount);
+    gameCount += 1;
     return output;
 }
+let winCount = 0;
+let gameCount = 0;
+const rButton = document.querySelector('.r');
+const pButton = document.querySelector('.p');
+const sButton = document.querySelector('.s');
+rButton.addEventListener('click', () => playRound('rock', getComputerChoice()));
+pButton.addEventListener('click', () => playRound('paper', getComputerChoice()));
+sButton.addEventListener('click', () => playRound('scissors', getComputerChoice()));
 
+/*
 let game = function() {
     winCount = 0;
     for (let i = 0; i < 5; i++) {
@@ -59,3 +71,4 @@ let game = function() {
     }
 }
 console.log(game());
+*/
